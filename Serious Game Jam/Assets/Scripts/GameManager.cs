@@ -14,13 +14,13 @@ public class GameManager : MonoBehaviour
 
 
     private List<Delivery> deliveries = new List<Delivery>();
-
+    public GameObject curObject;
 
     // Use this for initialization
     void Start()
     {
 
-
+        DontDestroyOnLoad(gameObject);
 
 
 
@@ -35,4 +35,30 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+    void LoadDelivery(Delivery d)
+    {
+
+        //Load the delivery here
+
+
+    }
+
+
+    void RotateRight()
+    {
+
+        curObject.transform.Rotate(0.0f, 0.0f, -90.0f);
+
+
+    }
+
+    void RotateLeft()
+    {
+
+        curObject.transform.Rotate(0.0f, 0.0f, 90.0f);
+
+
+    }
+
 }

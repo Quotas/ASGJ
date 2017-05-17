@@ -25,6 +25,33 @@ public class Zoom : MonoBehaviour
 
     }
 
+    void ZoomIn()
+    {
+
+
+        var fov = Camera.main.fieldOfView;
+        fov += -1.0f * sensitivity;
+        fov = Mathf.Clamp(fov, minFov, maxFov);
+        Camera.main.fieldOfView = fov;
+
+
+    }
+
+    void ZoomOut()
+    {
+
+
+        var fov = Camera.main.fieldOfView;
+        fov += 1.0f * sensitivity;
+        fov = Mathf.Clamp(fov, minFov, maxFov);
+        Camera.main.fieldOfView = fov;
+
+
+
+
+    }
+
+
 
 
 

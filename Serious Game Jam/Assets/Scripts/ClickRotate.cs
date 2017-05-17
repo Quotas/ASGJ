@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ClickRotate : MonoBehaviour
 {
@@ -41,13 +42,17 @@ public class ClickRotate : MonoBehaviour
             transform.rotation = Quaternion.identity;
 
         }
-
-        if (Input.GetMouseButton(0))
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
 
-            transform.Rotate(new Vector3(pitch, -1.0f * yaw, 0.0f), Space.World);
+            if (Input.GetMouseButton(0))
+            {
+
+                transform.Rotate(new Vector3(pitch, -1.0f * yaw, 0.0f), Space.World);
 
 
+
+            }
 
         }
 
