@@ -25,7 +25,7 @@ public class Delivery : MonoBehaviour
     }
 
 
-    void AddDialogue(string _text, ref GameObject _entity)
+    public void AddDialogue(string _text, ref GameObject _entity)
     {
 
         sceneDialogue.Add(new Dialogue(_text, ref _entity, sceneDialogue.Count));

@@ -15,12 +15,21 @@ public class GameManager : MonoBehaviour
 
     private List<Delivery> deliveries = new List<Delivery>();
     public GameObject curObject;
-
+    public GameObject boss;
     // Use this for initialization
     void Start()
     {
 
         DontDestroyOnLoad(gameObject);
+
+        #region Delivery Content
+        Delivery d = new Delivery();
+
+        d.sceneName = "China";
+        d.AddDialogue("Hello", ref boss);
+        d.AddDialogue("We have a new Delivery", ref boss);
+
+        #endregion
 
 
 
@@ -40,7 +49,6 @@ public class GameManager : MonoBehaviour
     {
 
         //Load the delivery here
-
 
     }
 
