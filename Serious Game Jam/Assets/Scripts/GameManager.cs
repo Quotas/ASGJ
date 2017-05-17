@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     void RotateRight()
     {
 
-        curObject.transform.Rotate(0.0f, 0.0f, -90.0f);
+        curObject.transform.Rotate(0.0f, 0.0f, -90.0f, Space.World);
 
 
     }
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     void RotateLeft()
     {
 
-        curObject.transform.Rotate(0.0f, 0.0f, 90.0f);
+		curObject.transform.Rotate(0.0f, 0.0f, 90.0f, Space.World);
 
 
     }

@@ -8,7 +8,7 @@ using UnityEngine;
 public struct Dialogue
 {
 
-    string text { get; set; }
+    public string text { get; set; }
     int id { get; set; }
     GameObject actor;
 

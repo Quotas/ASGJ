@@ -6,13 +6,12 @@ using UnityEngine.EventSystems;
 public class ClickRotate : MonoBehaviour
 {
 
-
-
-
     private float yaw = 0.0f;
     private float pitch = 0.0f;
     private float speedH = 10.0f;
     private float speedV = 10.0f;
+
+
     // Use this for initialization
     void Start()
     {
@@ -31,8 +30,6 @@ public class ClickRotate : MonoBehaviour
 
         yaw = speedH * Input.GetAxis("Mouse X");
         pitch = speedV * Input.GetAxis("Mouse Y");
-        Debug.Log(yaw);
-        Debug.Log(pitch);
 
 
 
