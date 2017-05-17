@@ -6,6 +6,13 @@ public class GameManager : MonoBehaviour
 {
 
 
+    //UI Elements go here
+
+
+
+
+
+
     private List<Delivery> deliveries = new List<Delivery>();
 
 
@@ -22,6 +29,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //TODO 
+
+
 
     }
 }

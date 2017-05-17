@@ -15,6 +15,7 @@ public class ClickRotate : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
 
     }
 
@@ -44,14 +45,12 @@ public class ClickRotate : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
 
-            //Cursor.lockState = CursorLockMode.Locked;
             transform.Rotate(new Vector3(pitch, -1.0f * yaw, 0.0f), Space.World);
-            //var curRotation = transform.rotation;
-            //var toRotation = Quaternion.Euler(pitch, yaw, 0);
-            //transform.rotation = Quaternion.Lerp(curRotation, toRotation, Time.deltaTime * 1.0f);
+
 
 
         }
+
 
 
 
