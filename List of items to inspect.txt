@@ -1,0 +1,28 @@
+3D Models:
+3 boxes of varying size
+Cigarette carton
+DVD case
+Sports shoe
+Liquer Bottle
+
+Textures:
+Cardboard box with brand logo
+Cardboard box with fake brand logo
+
+Cardboard box made in USA, sent form USA
+Cardboard box made in USA, sent from China
+
+Boxed electronic product with UL marking
+Boxed electronic product with fake UL marking
+
+Branded cigarette carton with seal
+Branded cigarette carton without seal
+
+Famous DVD film
+Famous DVD film low resolution/blurred
+
+Sports shoe with brand logo
+Sports shoe with fake brand logo
+
+Branded Liquer bottle with seal
+Branded Liquer bottle with broken seal

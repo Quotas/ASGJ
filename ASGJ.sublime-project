@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"file_include_patterns": ["*.cs", "*.txt"],
+			"folder_include_patterns": ["Serious Game Jam", "Assets", "Scripts"],
+			"path": "."
+		}
+	],
+	"solution_file": "Serious Game Jam/Serious Game Jam.sln"
+}
