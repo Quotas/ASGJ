@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         public string name;
         public GameObject boss;
 
+
         public void AddDialogue(string _text, ref GameObject _entity)
         {
 
@@ -108,6 +109,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject curObject;
     public GameObject boss;
+    public GameObject endScreen;
     // Use this for initialization
     void Start()
     {
@@ -126,6 +128,8 @@ public class GameManager : MonoBehaviour
 
         d.AddItem(items[itemKey.IndexOf("Cigarette Fake")]);
         d.AddItem(items[itemKey.IndexOf("Cigarette Real")]);
+        d.AddItem(items[itemKey.IndexOf("Cigar Fake")]);
+        d.AddItem(items[itemKey.IndexOf("Cigar Real")]);
         d.AddItem(items[itemKey.IndexOf("DVD Fake")]);
         d.AddItem(items[itemKey.IndexOf("DVD Real")]);
 
@@ -145,11 +149,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            curItemIndex++;
-
-        }
         if (deliveries[curDeliveryIndex].active == true)
         {
 
@@ -181,7 +180,7 @@ public class GameManager : MonoBehaviour
             {
 
                 //THis should be the end of the game I.E. the last delivery get the score here
-                return;
+                endScreen.GetComponent<EndGameScreen>().ShowTheResults();
             }
             else
             {
@@ -195,6 +194,28 @@ public class GameManager : MonoBehaviour
 
         //curItemIndex++;
 
+
+    }
+
+
+    void SetFake()
+    {
+        curObject = deliveries[curDeliveryIndex].items[curItemIndex].gameObject;
+        curObject.GetComponent<Item>().active = false;
+        endScreen.GetComponent<EndGameScreen>().AddAnswer(curObject, true);
+
+        curItemIndex++;
+
+    }
+
+    void SetNotFake()
+    {
+
+        curObject = deliveries[curDeliveryIndex].items[curItemIndex].gameObject;
+        curObject.GetComponent<Item>().active = false;
+        endScreen.GetComponent<EndGameScreen>().AddAnswer(curObject, false);
+
+        curItemIndex++;
 
     }
 

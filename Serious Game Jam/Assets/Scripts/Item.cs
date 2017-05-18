@@ -12,8 +12,8 @@ public class Item : MonoBehaviour
     public bool active;
     public float speed = 1.0f;
 
-	// This reference is for the correct Answer Image 
-	public Image correctAnswerImage;
+    // This reference is for the correct Answer Image 
+    public Image correctAnswerImage;
 
     private void Start()
     {
@@ -49,12 +49,6 @@ public class Item : MonoBehaviour
         else
         {
             TransitionExit();
-        }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            active = false;
-
         }
 
         if (transform.position.x <= -140)
