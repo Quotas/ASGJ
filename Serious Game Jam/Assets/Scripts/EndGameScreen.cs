@@ -52,6 +52,8 @@ public class EndGameScreen : MonoBehaviour {
 	void Update () 
 	{
 
+
+
 		if (EndGameState == true) 
 		{
 
@@ -59,12 +61,30 @@ public class EndGameScreen : MonoBehaviour {
 			if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f) 
 			{
 
-				for (int i = 0; i < questionList.Count; i++) 
+				// Display the end of game text and stuff here.
+				// Name Correct Button.For.Image
+
+				for (int i = 0; i < questionList.Count; i++)
 				{
 
 					// set them active to start 
-					results [i].SetActive (true);
-				
+					results[i].SetActive(true);
+
+					// Get the name of the object inspected
+					results [i].GetComponent<Text> ().text = questionList [i].name;
+
+					// Determine which image need to be applied
+					if (questionList [i].GetComponent<Item> ().fake == playerThinksitsFake [i]) {
+
+						// The player was right ( returns the first image allowing it to be changed
+						results [i].GetComponentInChildren<Image> ().sprite = correct;
+
+					} else {
+
+						// The player was right ( returns the first image allowing it to be changed
+						results [i].GetComponentInChildren<Image> ().sprite = wrong;
+
+					}
 
 				}
 
@@ -79,8 +99,6 @@ public class EndGameScreen : MonoBehaviour {
 					}
 
 				}
-
-				EndGameState = false;
 
 			}
 				
@@ -109,40 +127,11 @@ public class EndGameScreen : MonoBehaviour {
 			}
 
 		}
-			
-		animator.Play("EndGame");
 
+        GetComponent<Animator>().Play("EndGame");
 
 		// This bool enables the user interaction and update checking 
 		EndGameState = true;
-
-		// Display the end of game text and stuff here.
-		// Name Correct Button.For.Image
-		for (int i = 0; i < questionList.Count; i++)
-		{
-
-			// set them active to start 
-			results[i].SetActive(true);
-
-			// Get the name of the object inspected
-			results [i].GetComponent<Text> ().text = questionList [i].name;
-
-			// Determine which image need to be applied
-			if (questionList [i].GetComponent<Item> ().fake == playerThinksitsFake [i]) {
-
-				// The player was right ( returns the first image allowing it to be changed
-				results [i].GetComponentInChildren<Image> ().sprite = correct;
-
-			} else {
-
-				// The player was right ( returns the first image allowing it to be changed
-				results [i].GetComponentInChildren<Image> ().sprite = wrong;
-
-			}
-
-			results[i].SetActive(false);
-
-		}
 
 
 	}
@@ -169,8 +158,8 @@ public class EndGameScreen : MonoBehaviour {
 		questionList.Clear ();
 		playerScore = 0;
 
-		// reset the visual Image
-		animator.Play("Reset");
+        // reset the visual Image
+        GetComponent<Animator>().Play("Reset");
 
 	}
 

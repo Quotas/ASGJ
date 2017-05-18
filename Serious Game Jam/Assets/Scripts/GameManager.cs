@@ -170,7 +170,11 @@ public class GameManager : MonoBehaviour
 
             }
 
-            curObject = deliveries[curDeliveryIndex].items[curItemIndex];
+            if (curItemIndex < deliveries[curDeliveryIndex].items.Count)
+            {
+
+                curObject = deliveries[curDeliveryIndex].items[curItemIndex];
+            }
         }
 
         else if (deliveries[curDeliveryIndex].active == false)
