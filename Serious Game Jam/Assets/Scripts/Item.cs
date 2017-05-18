@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Item : MonoBehaviour
     Vector3 destination;
     bool active;
     public float speed = 1.0f;
+
+	// This reference is for the correct Answer Image 
+	public Image correctAnswerImage;
 
     private void Start()
     {
