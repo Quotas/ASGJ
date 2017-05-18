@@ -165,6 +165,8 @@ public class GameManager : MonoBehaviour
                 }
             }
 
+
+
             if (!deliveries[curDeliveryIndex].SetActiveItem(curItemIndex))
             {
 
@@ -172,6 +174,7 @@ public class GameManager : MonoBehaviour
 
             }
 
+            curObject = deliveries[curDeliveryIndex].items[curItemIndex];
         }
 
         else if (deliveries[curDeliveryIndex].active == false)
@@ -186,7 +189,6 @@ public class GameManager : MonoBehaviour
 
     void SetFake()
     {
-        curObject = deliveries[curDeliveryIndex].items[curItemIndex].gameObject;
         curObject.GetComponent<Item>().active = false;
         endScreen.GetComponent<EndGameScreen>().AddAnswer(curObject, true);
 
@@ -197,7 +199,6 @@ public class GameManager : MonoBehaviour
     void SetNotFake()
     {
 
-        curObject = deliveries[curDeliveryIndex].items[curItemIndex].gameObject;
         curObject.GetComponent<Item>().active = false;
         endScreen.GetComponent<EndGameScreen>().AddAnswer(curObject, false);
 
