@@ -13,7 +13,7 @@ public class Item : MonoBehaviour
     public float speed = 1.0f;
 
 	// This reference is for the correct Answer Image 
-	public Image correctAnswerImage;
+	public Sprite correctAnswerImage;
 
     private void Start()
     {

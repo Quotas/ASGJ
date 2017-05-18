@@ -18,8 +18,23 @@ public class EndGameScreen : MonoBehaviour {
 	// Numberic data for displaying stats on the end game screen
 	int playerScore;
 
-	// THIS IS FOR TEST 
-	public Text testText;
+	// This is a reference to the button Object
+	public Button resetButton;
+
+	// Text Prefab
+	public Text textPrefab;
+
+	// References to the right and wrong player feedback
+	public Sprite correct;
+	public Sprite wrong;
+
+	// These are reference to the text/Images/Button arrays 
+	[SerializeField]
+	public List<GameObject> results;
+
+	// Prefab object for the solution screen
+	public GameObject imageScreenPrefab;
+
 
 	// Use this for initialization
 	void Start () 
@@ -30,8 +45,6 @@ public class EndGameScreen : MonoBehaviour {
 		}
 
 		animator.Play ("Reset");
-
-		testText.text = "";
 		
 	}
 	
@@ -46,11 +59,47 @@ public class EndGameScreen : MonoBehaviour {
 			if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f) 
 			{
 
-				testText.text = "Test Text";
+				// Display the end of game text and stuff here.
+				// Name Correct Button.For.Image
+
+				for (int i = 0; i < questionList.Count; i++)
+				{
+
+					// set them active to start 
+					results[i].SetActive(true);
+
+					// Get the name of the object inspected
+					results [i].GetComponent<Text> ().text = questionList [i].name;
+
+					// Determine which image need to be applied
+					if (questionList [i].GetComponent<Item> ().fake == playerThinksitsFake [i]) {
+
+						// The player was right ( returns the first image allowing it to be changed
+						results [i].GetComponentInChildren<Image> ().sprite = correct;
+
+					} else {
+
+						// The player was right ( returns the first image allowing it to be changed
+						results [i].GetComponentInChildren<Image> ().sprite = wrong;
+
+					}
+
+				}
+
+				// Check that there aren't any empty ones in the list 
+				for (int i = 0; i < results.Count; i++) 
+				{
+					if (results [i].GetComponent<Text> ().text == "NAME") 
+					{
+
+						results [i].SetActive (false);
+
+					}
+
+				}
 
 			}
-
-
+				
 		}
 
 		if (Input.GetKeyDown (KeyCode.LeftApple)) 
@@ -109,6 +158,18 @@ public class EndGameScreen : MonoBehaviour {
 
 		// reset the visual Image
 		animator.Play("Reset");
+
+	}
+
+
+	public void buttonPressed( int indexImageLookUp)
+	{
+
+		// load the image with the ability to quit
+		imageScreenPrefab.SetActive(true);
+
+		// set the image of the button pressed
+		imageScreenPrefab.GetComponent<Image>().sprite = questionList[indexImageLookUp].GetComponent<Item>().correctAnswerImage;
 
 	}
 
