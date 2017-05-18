@@ -25,6 +25,7 @@ public class BossController : MonoBehaviour
     private string speechToBeParsed;
     int currentCharacter;
     private float timer;
+    private bool clicked = false;
 
     // reference to the current dialoge being displayed
     string text;
@@ -80,15 +81,23 @@ public class BossController : MonoBehaviour
                 currentCharacter++;
                 timer = 0.0f;
             }
-            else if (currentCharacter == text.Length && Input.anyKeyDown)
+            else if (currentCharacter == text.Length && clicked)
             {
                 curIndex++;
                 speaking = false;
+                clicked = false;
             }
 
         }
 
         BossSpeech.text = speechToBeParsed;
+
+    }
+
+    void ProgressDialogue()
+    {
+
+        clicked = true;
 
     }
 
@@ -125,6 +134,7 @@ public class BossController : MonoBehaviour
         // Hide the speech Bubble
         SpeechBubble.enabled = false;
         BossSpeech.enabled = false;
+        transform.FindChild("DialogueButton").gameObject.SetActive(false);
 
         // Start the animation
         animator.Play("BossExit");

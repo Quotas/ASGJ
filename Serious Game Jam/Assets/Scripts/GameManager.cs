@@ -169,30 +169,16 @@ public class GameManager : MonoBehaviour
             {
 
                 deliveries[curDeliveryIndex].active = false;
-                curItemIndex = 0;
+
             }
 
         }
 
         else if (deliveries[curDeliveryIndex].active == false)
         {
-            if (curDeliveryIndex + 1 > deliveries.Count - 1)
-            {
-
-                //THis should be the end of the game I.E. the last delivery get the score here
-                endScreen.GetComponent<EndGameScreen>().ShowTheResults();
-            }
-            else
-            {
-                //Otherwise increment the delivery index
-                curDeliveryIndex++;
-                deliveries[curDeliveryIndex].active = true;
-
-            }
-
+            endScreen.GetComponent<EndGameScreen>().ShowTheResults();
         }
 
-        //curItemIndex++;
 
 
     }
