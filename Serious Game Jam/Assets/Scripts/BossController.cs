@@ -30,6 +30,9 @@ public class BossController : MonoBehaviour
     // reference to the current dialoge being displayed
     string text;
 
+	// references to the move on button
+	GameObject buttonRef;
+
     // This is for a test
 
     // Use this for initialization
@@ -46,6 +49,11 @@ public class BossController : MonoBehaviour
             SpeechBubble = GetComponentsInChildren<Image>()[1]; // 1 is the first image past the boss him/herself
         }
 
+		if (buttonRef == null) 
+		{
+			buttonRef = GetComponentInChildren<Button> ().gameObject;
+		}
+
         // Get access to the animator
         animator = GetComponent<Animator>();
 
@@ -53,6 +61,7 @@ public class BossController : MonoBehaviour
 
         SpeechBubble.enabled = false;
         BossSpeech.enabled = false;
+		buttonRef.SetActive (false);
 
 
 
@@ -67,10 +76,11 @@ public class BossController : MonoBehaviour
         if (speaking == true)
         {
 
-            if (SpeechBubble.enabled == false)
+			if (SpeechBubble.enabled == false && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
             {
                 SpeechBubble.enabled = true;
                 BossSpeech.enabled = true;
+				buttonRef.SetActive (true);
             }
 
             timer += Time.deltaTime;
@@ -94,7 +104,7 @@ public class BossController : MonoBehaviour
 
     }
 
-    void ProgressDialogue()
+    public void ProgressDialogue()
     {
 
         clicked = true;
@@ -134,7 +144,7 @@ public class BossController : MonoBehaviour
         // Hide the speech Bubble
         SpeechBubble.enabled = false;
         BossSpeech.enabled = false;
-        transform.FindChild("DialogueButton").gameObject.SetActive(false);
+		buttonRef.SetActive (false);
 
         // Start the animation
         animator.Play("BossExit");

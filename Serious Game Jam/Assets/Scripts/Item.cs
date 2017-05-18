@@ -21,8 +21,6 @@ public class Item : MonoBehaviour
         mainCamera = Camera.main;
         destination = new Vector3(Screen.height / 2.0f, Screen.width / 2.0f, 0);
 
-
-
     }
 
     private void Awake()
