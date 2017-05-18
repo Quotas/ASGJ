@@ -1,0 +1,13 @@
+UI:
+x   Cross red
+x   Cross white
+    Speech bubble
+x   Tick green
+x   Tick white
+x   Zoom in
+x   Zoom out
+
+
+3D:
+    Boss character (non-caucasian)
+x   Workspace desk

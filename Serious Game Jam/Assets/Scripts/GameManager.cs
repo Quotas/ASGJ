@@ -119,8 +119,14 @@ public class GameManager : MonoBehaviour
         Delivery d = new Delivery();
 
         d.name = "Main";
-        d.AddDialogue("Hello", ref boss);
-        d.AddDialogue("We have a new Delivery", ref boss);
+        d.AddDialogue("Welcome to the customs inspection office!", ref boss);
+        d.AddDialogue("As an inspection officer, your job is to examine goods that come through here and determine if they are Genuine or Fake.", ref boss);
+        d.AddDialogue("You represent the front line defence that protects the people of our country from illicit and dangerous goods.", ref boss);
+        d.AddDialogue("Every time you confiscate an illicit item you are making the world a better place by putting a spanner in the works of international organized crime.", ref boss);
+
+        d.AddDialogue("You can rotate the item by clicking and dragging with the mouse.", ref boss);
+        d.AddDialogue("Use the [+] and [-] buttons to zoom in and out, you can also use the mouse wheel.", ref boss);
+        d.AddDialogue("Look for the tell-tale signs that you have been taught and make your verdict:\nIs the item Genuine or Fake?", ref boss);
 
 
         d.AddItem(items[itemKey.IndexOf("Cigarette Fake")]);

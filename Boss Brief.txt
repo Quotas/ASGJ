@@ -9,8 +9,6 @@ Every time you confiscate an illicit item you are making the world a better plac
 
 
 Tutorial:
-Here is where you will recieve items to inspect.
-
 You can rotate the item by clicking and dragging with the mouse.
 
 Use the [+] and [-] buttons to zoom in and out, you can also use the mouse wheel.
