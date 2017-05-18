@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
     public bool fake;
     Camera mainCamera;
     Vector3 destination;
-    bool active;
+    public bool active;
     public float speed = 1.0f;
 
 	// This reference is for the correct Answer Image 
@@ -19,8 +19,17 @@ public class Item : MonoBehaviour
     {
 
         mainCamera = Camera.main;
-        destination = new Vector3(mainCamera.pixelHeight / 2.0f, mainCamera.pixelWidth / 2.0f, 0);
+        destination = new Vector3(Screen.height / 2.0f, Screen.width / 2.0f, 0);
 
+
+
+    }
+
+    private void Awake()
+    {
+
+
+        active = true;
 
     }
 
@@ -33,15 +42,47 @@ public class Item : MonoBehaviour
         if (active)
         {
 
-            transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
 
+            TransitionEnter();
+
+        }
+        else
+        {
+            TransitionExit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            active = false;
+
+        }
+
+        if (transform.position.x <= -140)
+        {
+
+            this.gameObject.SetActive(false);
 
         }
 
 
     }
 
+    void TransitionEnter()
+    {
 
+        transform.position = Vector3.MoveTowards(transform.position, Vector3.zero, speed * Time.deltaTime);
+
+
+    }
+
+
+    void TransitionExit()
+    {
+
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(-150, 0.0f, 0.0f), speed * Time.deltaTime);
+
+
+    }
 
 
 }

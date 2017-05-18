@@ -11,12 +11,14 @@ public class BossController : MonoBehaviour
     public float secondsPerCharacter;
     public int curIndex = 0;
 
-    public enum ISpeechStatus { PENDING, FAILED, SUCCESS }
-
     // Reference to the speech text
     public Text BossSpeech;
     public Image SpeechBubble;
     private Animator animator;
+
+    public enum BossState { TALKING, EXIT, PRESENT }
+
+    public BossState state;
 
     // speech parsing algorithms
     public bool speaking;
@@ -25,11 +27,9 @@ public class BossController : MonoBehaviour
     private float timer;
 
     // reference to the current dialoge being displayed
-    Dialogue currentDialogue;
+    string text;
 
     // This is for a test
-    Dialogue test;
-    Dialogue test2;
 
     // Use this for initialization
     void Start()
@@ -48,17 +48,11 @@ public class BossController : MonoBehaviour
         // Get access to the animator
         animator = GetComponent<Animator>();
 
-        test = new Dialogue();
-        test.text = "This is a test what do you think";
-
-        test2 = new Dialogue();
-        test2.text = "I hope you like this little test. I am not sure if it works well, lets see!!!";
-
         timer = 0.0f;
 
         SpeechBubble.enabled = false;
         BossSpeech.enabled = false;
-        BossEnter();
+
 
 
     }
@@ -67,16 +61,6 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            BossSpeaks(test);
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            BossSpeaks(test2);
-        }
 
 
         if (speaking == true)
@@ -90,13 +74,13 @@ public class BossController : MonoBehaviour
 
             timer += Time.deltaTime;
 
-            if (timer > secondsPerCharacter && currentCharacter < currentDialogue.text.Length)
+            if (timer > secondsPerCharacter && currentCharacter < text.Length)
             {
-                speechToBeParsed += currentDialogue.text[currentCharacter];
+                speechToBeParsed += text[currentCharacter];
                 currentCharacter++;
                 timer = 0.0f;
             }
-            else if (currentCharacter == currentDialogue.text.Length && Input.anyKeyDown)
+            else if (currentCharacter == text.Length && Input.anyKeyDown)
             {
                 curIndex++;
                 speaking = false;
@@ -108,12 +92,12 @@ public class BossController : MonoBehaviour
 
     }
 
-    public void BossSpeaks(Dialogue speech)
+    public void BossSpeaks(string speech)
     {
 
         // Sets the dialogue to be parsed and starts the display
 
-        currentDialogue = speech;
+        text = speech;
         speaking = true;
         currentCharacter = 0;
         speechToBeParsed = "";
@@ -128,6 +112,7 @@ public class BossController : MonoBehaviour
         // calls the boss into the level
         // Start the animation
         animator.SetTrigger("Enter");
+        state = BossState.PRESENT;
 
     }
 
@@ -144,6 +129,7 @@ public class BossController : MonoBehaviour
         // Start the animation
         animator.Play("BossExit");
 
+        state = BossState.EXIT;
 
     }
 
