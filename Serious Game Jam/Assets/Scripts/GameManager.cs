@@ -94,9 +94,6 @@ public class GameManager : MonoBehaviour
     //UI Elements go here
 
 
-
-
-
     public int curDeliveryIndex = 0;
     public int curItemIndex = 0;
     private List<Delivery> deliveries = new List<Delivery>();
@@ -110,6 +107,8 @@ public class GameManager : MonoBehaviour
     public GameObject curObject;
     public GameObject boss;
     public GameObject endScreen;
+
+
     // Use this for initialization
     void Start()
     {
@@ -122,8 +121,6 @@ public class GameManager : MonoBehaviour
         d.name = "Main";
         d.AddDialogue("Hello", ref boss);
         d.AddDialogue("We have a new Delivery", ref boss);
-
-
 
 
         d.AddItem(items[itemKey.IndexOf("Cigarette Fake")]);
@@ -140,8 +137,7 @@ public class GameManager : MonoBehaviour
 
 
         deliveries[curDeliveryIndex].active = true;
-
-
+		curObject = items [curDeliveryIndex];
 
     }
 
