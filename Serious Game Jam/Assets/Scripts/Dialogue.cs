@@ -23,5 +23,13 @@ public struct Dialogue
 
 
     }
+
+
+    public void Fire()
+    {
+
+        actor.GetComponent<BossController>().BossSpeaks(this);
+
+    }
 }
 
