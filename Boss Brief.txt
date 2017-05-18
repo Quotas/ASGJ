@@ -5,7 +5,14 @@ As an inspection officer, your job is to examine goods that come through here an
 
 You represent the front line defence that protects the people of our country from illicit and dangerous goods.
 
-Every time you confiscate an illicit item, you are putting a spanner in the works of international organized crime, and making the world a better place.
+Every time you confiscate an illicit item you are making the world a better place by putting a spanner in the works of international organized crime.
 
 
 Tutorial:
+Here is where you will recieve items to inspect.
+
+You can rotate the item by clicking and dragging with the mouse.
+
+Use the [+] and [-] buttons to zoom in and out, you can also use the mouse wheel.
+
+Look for the tell-tale signs that you have been taught and make your verdict: Is the item Genuine or Fake?
