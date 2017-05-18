@@ -59,19 +59,16 @@ public class GameManager : MonoBehaviour
     }
 
 
+    // This is the UI interface to the current item to allow it to be rotated.
     void RotateRight()
     {
-
-        curObject.transform.Rotate(0.0f, 0.0f, -90.0f, Space.World);
-
-
+        curObject.GetComponent<ClickRotate>().Rotate(-90.0f);
     }
 
     void RotateLeft()
     {
 
-        curObject.transform.Rotate(0.0f, 0.0f, 90.0f, Space.World);
-
+        curObject.GetComponent<ClickRotate>().Rotate(90.0f);
 
     }
 
