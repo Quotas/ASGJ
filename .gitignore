@@ -25,4 +25,5 @@ Serious Game Jam/Library/
 
 Serious Game Jam/Temp/
 
-
+# Sublime workspace file
+*.sublime-workspace

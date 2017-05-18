@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public struct Dialogue
@@ -19,8 +20,16 @@ public struct Dialogue
         id = _id;
         actor = _entity;
 
+
+
     }
 
 
+    public void Fire()
+    {
+
+        actor.GetComponent<BossController>().BossSpeaks(this);
+
+    }
 }
 

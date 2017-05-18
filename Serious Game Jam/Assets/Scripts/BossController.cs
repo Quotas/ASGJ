@@ -4,152 +4,148 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class BossController : MonoBehaviour {
+public class BossController : MonoBehaviour
+{
 
-	// Settings for the speech display
-	public float secondsPerCharacter;
+    // Settings for the speech display
+    public float secondsPerCharacter;
+    public int curIndex = 0;
 
-	// Reference to the speech text
-	public Text BossSpeech;
-	public Image SpeechBubble;
-	private Animator animator;
+    public enum ISpeechStatus { PENDING, FAILED, SUCCESS }
 
-	// speech parsing algorithms
-	bool speaking;
-	private string speechToBeParsed;
-	int currentCharacter;
-	private float timer;
+    // Reference to the speech text
+    public Text BossSpeech;
+    public Image SpeechBubble;
+    private Animator animator;
 
-	// reference to the current dialoge being displayed
-	Dialogue currentDialogue;
+    // speech parsing algorithms
+    public bool speaking;
+    private string speechToBeParsed;
+    int currentCharacter;
+    private float timer;
 
-	// This is for a test
-	Dialogue test;
-	Dialogue test2;
+    // reference to the current dialoge being displayed
+    Dialogue currentDialogue;
 
-	// Use this for initialization
-	void Start () {
+    // This is for a test
+    Dialogue test;
+    Dialogue test2;
 
-		if(BossSpeech == null)
-		{
-		BossSpeech = GetComponentInChildren<Text> (); // If there is a button placed on the speech bubble it may return that
-		}
+    // Use this for initialization
+    void Start()
+    {
 
-		if(SpeechBubble == null)
-		{
-		SpeechBubble = GetComponentsInChildren<Image>()[1]; // 1 is the first image past the boss him/herself
-		}
+        if (BossSpeech == null)
+        {
+            BossSpeech = GetComponentInChildren<Text>(); // If there is a button placed on the speech bubble it may return that
+        }
 
-		// Get access to the animator
-		animator = GetComponent<Animator> ();
+        if (SpeechBubble == null)
+        {
+            SpeechBubble = GetComponentsInChildren<Image>()[1]; // 1 is the first image past the boss him/herself
+        }
 
-		test = new Dialogue ();
-		test.text = "This is a test what do you think";
+        // Get access to the animator
+        animator = GetComponent<Animator>();
 
-		test2 = new Dialogue ();
-		test2.text = "I hope you like this little test. I am not sure if it works well, lets see!!!";
+        test = new Dialogue();
+        test.text = "This is a test what do you think";
 
-		timer = 0.0f;
+        test2 = new Dialogue();
+        test2.text = "I hope you like this little test. I am not sure if it works well, lets see!!!";
 
-		SpeechBubble.enabled = false;
-		BossSpeech.enabled = false;
-	
+        timer = 0.0f;
 
-	}
-
-
-	// Update is called once per frame
-	void Update () 
-	{
-
-		if (Input.GetKeyDown (KeyCode.Space)) 
-		{
-			BossSpeaks (test);
-		}
-
-		if (Input.GetKeyDown (KeyCode.K))
-		{
-			BossSpeaks (test2);
-		}
-
-		if (Input.GetKeyDown (KeyCode.G)) 
-		{
-			if (SpeechBubble.enabled == true) 
-			{
-				BossExit ();
-
-			} 
-			else 
-			{
-				BossEnter ();
-			}
-		}
-
-		if (speaking == true) 
-		{
-
-			if (SpeechBubble.enabled == false) 
-			{
-				SpeechBubble.enabled = true;
-				BossSpeech.enabled = true;
-			}
-
-			timer += Time.deltaTime;
-
-			if (timer > secondsPerCharacter && currentCharacter < currentDialogue.text.Length) 
-			{
-				speechToBeParsed += currentDialogue.text [currentCharacter];
-				currentCharacter++; 
-				timer = 0.0f;
-			} 
-			else if (currentCharacter == currentDialogue.text.Length)
-			{
-				speaking = false;
-			}
-
-		}
-
-		BossSpeech.text = speechToBeParsed;
-		
-	}
-
-	public void BossSpeaks(Dialogue speech)
-	{
-
-		// Sets the dialogue to be parsed and starts the display
-
-		currentDialogue = speech;
-		speaking = true;
-		currentCharacter = 0;
-		speechToBeParsed = "";
-
-	}
+        SpeechBubble.enabled = false;
+        BossSpeech.enabled = false;
+        BossEnter();
 
 
-	public void BossEnter()
-	{
-
-		// calls the boss into the level
-		// Start the animation
-		animator.SetTrigger("Enter");
-
-	}
+    }
 
 
-	public void BossExit()
-	{
+    // Update is called once per frame
+    void Update()
+    {
 
-		// calls the boss into the level
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            BossSpeaks(test);
+        }
 
-		// Hide the speech Bubble
-		SpeechBubble.enabled = false;
-		BossSpeech.enabled = false;
-
-		// Start the animation
-		animator.SetTrigger("Exit");
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            BossSpeaks(test2);
+        }
 
 
-	}
+        if (speaking == true)
+        {
+
+            if (SpeechBubble.enabled == false)
+            {
+                SpeechBubble.enabled = true;
+                BossSpeech.enabled = true;
+            }
+
+            timer += Time.deltaTime;
+
+            if (timer > secondsPerCharacter && currentCharacter < currentDialogue.text.Length)
+            {
+                speechToBeParsed += currentDialogue.text[currentCharacter];
+                currentCharacter++;
+                timer = 0.0f;
+            }
+            else if (currentCharacter == currentDialogue.text.Length && Input.anyKeyDown)
+            {
+                curIndex++;
+                speaking = false;
+            }
+
+        }
+
+        BossSpeech.text = speechToBeParsed;
+
+    }
+
+    public void BossSpeaks(Dialogue speech)
+    {
+
+        // Sets the dialogue to be parsed and starts the display
+
+        currentDialogue = speech;
+        speaking = true;
+        currentCharacter = 0;
+        speechToBeParsed = "";
+
+
+    }
+
+
+    public void BossEnter()
+    {
+
+        // calls the boss into the level
+        // Start the animation
+        animator.SetTrigger("Enter");
+
+    }
+
+
+    public void BossExit()
+    {
+
+        // calls the boss into the level
+
+        // Hide the speech Bubble
+        SpeechBubble.enabled = false;
+        BossSpeech.enabled = false;
+
+        // Start the animation
+        animator.Play("BossExit");
+
+
+    }
 
 
 }
