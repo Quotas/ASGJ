@@ -61,11 +61,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   itemKey:
-  - Cigarette Fake
-  - Cigarette Real
-  - Cigar Fake
-  - Cigar Real
   - DVD Fake
+  - Cigarette Real
+  - Whiskey Fake
+  - Box 1
+  - Cigarette Fake
   - DVD Real
   curObject: {fileID: 0}
   boss: {fileID: 0}

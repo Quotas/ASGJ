@@ -129,11 +129,11 @@ public class GameManager : MonoBehaviour
         d.AddDialogue("Look for the tell-tale signs that you have been taught and make your verdict:\nIs the item Genuine or Fake?", ref boss);
 
 
-        d.AddItem(items[itemKey.IndexOf("Cigarette Fake")]);
+		d.AddItem(items[itemKey.IndexOf("DVD Fake")]);
         d.AddItem(items[itemKey.IndexOf("Cigarette Real")]);
-        d.AddItem(items[itemKey.IndexOf("Cigar Fake")]);
-        d.AddItem(items[itemKey.IndexOf("Cigar Real")]);
-        d.AddItem(items[itemKey.IndexOf("DVD Fake")]);
+		d.AddItem(items[itemKey.IndexOf("Whiskey Fake")]);
+		d.AddItem(items[itemKey.IndexOf("Box Real")]);
+		d.AddItem(items[itemKey.IndexOf("Cigarette Fake")]);
         d.AddItem(items[itemKey.IndexOf("DVD Real")]);
 
 
