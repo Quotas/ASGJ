@@ -88,10 +88,11 @@ public class EndGameScreen : MonoBehaviour {
 				
 		}
 
-		if (Input.GetKeyDown (KeyCode.LeftApple)) 
-		{
-			ShowTheResults ();
-		}
+	// For debug only
+	//	if (Input.GetKeyDown (KeyCode.LeftApple)) 
+	//	{
+	//		ShowTheResults ();
+	//	}
 		
 	}
 

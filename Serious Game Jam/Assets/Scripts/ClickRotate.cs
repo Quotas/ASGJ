@@ -68,25 +68,30 @@ public class ClickRotate : MonoBehaviour
         //speedH = speedH * Mathf.Abs(Input.GetAxis("Mouse X"));
         //speedV = speedV * Mathf.Abs(Input.GetAxis("Mouse Y"));
 
+		// Double click removed - this will need to be added 
+
 
         yaw = speedH * Input.GetAxis("Mouse X");
         pitch = speedV * Input.GetAxis("Mouse Y");
 
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            transform.rotation = Quaternion.identity;
-        }
+		// Future Feature
+        // if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //   transform.rotation = Quaternion.identity;
+        // }
 
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (Input.GetMouseButtonDown(0) && recentlyclicked == false)
-            {
+          // if (Input.GetMouseButtonDown(0) && recentlyclicked == false)
+          //  {
                 // start a timer for detecting the second click 
-                recentlyclicked = true;
+          //     recentlyclicked = true;
 
-            }
-            else if (Input.GetMouseButton(0))
+          //    }
+          //   else 
+
+
+			if (Input.GetMouseButton(0))
             {
                 transform.Rotate(new Vector3(pitch, -1.0f * yaw, 0.0f), Space.World);
             }
@@ -95,7 +100,7 @@ public class ClickRotate : MonoBehaviour
 
 
         // detecting the double click 
-
+		/*
         if (recentlyclicked == true && clickTimer < doubleClickDelayTimer)
         {
 
@@ -141,6 +146,8 @@ public class ClickRotate : MonoBehaviour
             implementTimer += Time.deltaTime * rotationSpeed;
             transform.rotation = Quaternion.Slerp(currentRotation, new Quaternion(requiredRotation.x, requiredRotation.y, 0.0f, requiredRotation.w), implementTimer * rotationSpeed);
         }
+
+*/
 
 
 		if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0)) 
