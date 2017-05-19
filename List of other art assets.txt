@@ -1,7 +1,7 @@
 UI:
 x   Cross red
 x   Cross white
-    Speech bubble
+x   Speech bubble
 x   Tick green
 x   Tick white
 x   Zoom in
