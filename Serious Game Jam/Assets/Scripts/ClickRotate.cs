@@ -9,7 +9,6 @@ public class ClickRotate : MonoBehaviour
     // reference to the camera (assumes there is only one camera in the scene)
     Camera cam;
 
-
     // *********These variables handle the rotation element of the control *********
     private float yaw = 0.0f;
     private float pitch = 0.0f;
@@ -34,6 +33,13 @@ public class ClickRotate : MonoBehaviour
     private Vector3 realWorldNormal;
     // Control Logic for Rotating the Camera
     private bool rotateToFaceCamera;
+
+	// Audio Effects
+	[SerializeField]
+	List<AudioClip> sounds = new List<AudioClip>();
+	public SoundManager soundManager;
+	bool soundcontrol = false;
+	public int sourceChoice;
 
 
     // Use this for initialization
@@ -78,21 +84,19 @@ public class ClickRotate : MonoBehaviour
             {
                 // start a timer for detecting the second click 
                 recentlyclicked = true;
+
             }
             else if (Input.GetMouseButton(0))
             {
                 transform.Rotate(new Vector3(pitch, -1.0f * yaw, 0.0f), Space.World);
             }
         }
+	
 
 
         // detecting the double click 
-        if (Input.GetMouseButtonDown(0) && recentlyclicked == false)
-        {
-            // start a timer for detecting the second click 
-            recentlyclicked = true;
-        }
-        else if (recentlyclicked == true && clickTimer < doubleClickDelayTimer)
+
+        if (recentlyclicked == true && clickTimer < doubleClickDelayTimer)
         {
 
             clickTimer += Time.deltaTime;
@@ -113,7 +117,7 @@ public class ClickRotate : MonoBehaviour
                 }
             }
         }
-        else
+		else if(clickTimer > doubleClickDelayTimer)
         {
             clickTimer = 0.0f;
         }
@@ -137,6 +141,16 @@ public class ClickRotate : MonoBehaviour
             implementTimer += Time.deltaTime * rotationSpeed;
             transform.rotation = Quaternion.Slerp(currentRotation, new Quaternion(requiredRotation.x, requiredRotation.y, 0.0f, requiredRotation.w), implementTimer * rotationSpeed);
         }
+
+
+		if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0)) 
+		{
+			int min = 0;
+			int max = sounds.Count - 1;
+			AudioClip randomClip = sounds [Random.Range (min, max)];
+			soundManager.PlaySound (randomClip, sourceChoice);
+		}
+
 
     }
 

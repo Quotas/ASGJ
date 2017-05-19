@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
 
 
     //UI Elements go here
-
+	bool gameEnd = false;
 
     public int curDeliveryIndex = 0;
     public int curItemIndex = 0;
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
 
         #region Delivery Content
         Delivery d = new Delivery();
@@ -175,13 +175,16 @@ public class GameManager : MonoBehaviour
                 deliveries[curDeliveryIndex].active = false;
 
             }
-
+			else
+			{
             curObject = deliveries[curDeliveryIndex].items[curItemIndex];
+			}
         }
 
-        else if (deliveries[curDeliveryIndex].active == false)
+        else if (deliveries[curDeliveryIndex].active == false && gameEnd == false)
         {
             endScreen.GetComponent<EndGameScreen>().ShowTheResults();
+			gameEnd = true;
         }
 
 

@@ -55,13 +55,14 @@ GameObject:
   - component: {fileID: 4472113885173410}
   - component: {fileID: 114075488614291032}
   - component: {fileID: 114030517728963048}
+  - component: {fileID: 65147860741684984}
   m_Layer: 0
   m_Name: DVDCASE_ORIGINALL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4187237598355268
 Transform:
   m_ObjectHideFlags: 1
@@ -82,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1933414729889380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150, y: 0, z: 0}
+  m_LocalPosition: {x: 15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4187237598355268}
@@ -181,6 +182,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614416245890884}
   m_Mesh: {fileID: 4300002, guid: 4675664194944494da45243925ef1d25, type: 3}
+--- !u!65 &65147860741684984
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1933414729889380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114030517728963048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,8 +205,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e3718376cc7854a95ef3d0af867dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doubleClickDelayTimer: 0.5
+  doubleClickDelayTimer: 0.1
   rotationSpeed: 10
+  sounds:
+  - {fileID: 8300000, guid: aa2ee4a594be84c348222dbbcbbc9c3b, type: 3}
+  - {fileID: 8300000, guid: 7b0a205c3c0cc4f15a7edd2fb9202dd4, type: 3}
+  - {fileID: 8300000, guid: d823ecf4759544ab6af1b7fb807d1dac, type: 3}
+  - {fileID: 8300000, guid: 6be0668d3348949f7bbde3dd9995324f, type: 3}
+  - {fileID: 8300000, guid: cbc2eb1a951aa41b598ff179afe97625, type: 3}
+  - {fileID: 8300000, guid: aaae31d2dcb774986996d5c8af73351e, type: 3}
+  - {fileID: 8300000, guid: 485bb8fefe7ba42df8f170b368109325, type: 3}
+  soundManager: {fileID: 0}
 --- !u!114 &114075488614291032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,5 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fake: 0
   active: 0
-  speed: 40
+  speed: 20
+  swoosh: {fileID: 8300000, guid: b06c1a07fde704ed19261afb9b3f0049, type: 3}
+  soundManager: {fileID: 0}
   correctAnswerImage: {fileID: 0}

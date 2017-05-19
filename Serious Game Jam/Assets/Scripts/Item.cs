@@ -12,6 +12,9 @@ public class Item : MonoBehaviour
     public bool active;
     public float speed = 1.0f;
 
+	public AudioClip swoosh;
+	public SoundManager soundManager;
+
     // This reference is for the correct Answer Image 
 	public Sprite correctAnswerImage;
 
@@ -28,6 +31,7 @@ public class Item : MonoBehaviour
 
 
         active = true;
+		soundManager.PlaySound (swoosh, 0);
 
     }
 
@@ -49,7 +53,7 @@ public class Item : MonoBehaviour
             TransitionExit();
         }
 
-        if (transform.position.x <= -140)
+        if (transform.position.x <= -20)
         {
 
             this.gameObject.SetActive(false);

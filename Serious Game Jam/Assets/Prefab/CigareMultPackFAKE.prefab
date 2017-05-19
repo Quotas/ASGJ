@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95076636555391130}
   - component: {fileID: 114494967529031328}
   - component: {fileID: 114537332222298770}
+  - component: {fileID: 65250938891742200}
   m_Layer: 0
   m_Name: CigareMultPackFAKE
   m_TagString: Untagged
@@ -83,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1280244199976920}
   m_Mesh: {fileID: 4300000, guid: 0a72204229ff45948b2aab33ce6a6eac, type: 3}
+--- !u!65 &65250938891742200
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1280244199976920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 193.22742, y: 41.813942, z: 92.68232}
+  m_Center: {x: -3.7587166, y: 0, z: 0}
 --- !u!95 &95076636555391130
 Animator:
   serializedVersion: 3

@@ -19,7 +19,7 @@ public class EndGameScreen : MonoBehaviour {
 	int playerScore;
 
 	// This is a reference to the button Object
-	public Button resetButton;
+	public GameObject resetButton;
 
 	// Text Prefab
 	public Text textPrefab;
@@ -45,6 +45,8 @@ public class EndGameScreen : MonoBehaviour {
 		}
 
 		animator.Play ("Reset");
+
+		resetButton.SetActive (false);
 		
 	}
 	
@@ -111,6 +113,8 @@ public class EndGameScreen : MonoBehaviour {
 		}
 			
 		animator.Play("EndGame");
+
+		resetButton.SetActive (true);
 
 
 		// This bool enables the user interaction and update checking 

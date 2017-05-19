@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 95990716369131872}
   - component: {fileID: 114540863340942852}
   - component: {fileID: 114151471334628450}
+  - component: {fileID: 65100182198574788}
   m_Layer: 0
   m_Name: DVD CAse FAKE
   m_TagString: Untagged
@@ -182,6 +183,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1640558137347052}
   m_Mesh: {fileID: 4300002, guid: a96a1d7867512174596077b4860e71f0, type: 3}
+--- !u!65 &65100182198574788
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865372182775286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95990716369131872
 Animator:
   serializedVersion: 3

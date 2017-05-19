@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour {
 
-	public AudioSource fxSource;
 	public AudioSource musicSource;
 
-	// Use this for initialization
-	void Start () 
+	public static GameObject instance = null;
+
+	void Awake()
 	{
+		if (instance == null) 
+		{
+			instance = this.gameObject;
+		} 
+		else if (instance != this.gameObject)
+		{
+			Destroy (this.gameObject);
+		}
 
-		// Don't interupt the music during restart or reload of the scene
-		DontDestroyOnLoad (this);
-
+		DontDestroyOnLoad (this.gameObject);
 	}
 
-
-	public void SinglePlay(AudioClip clip)
-	{
-
-	}
-
+		
 }
