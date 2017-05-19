@@ -354,6 +354,12 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114636992128372172, guid: 1bff6c40937ad470a87387a55edbcc59,
+        type: 2}
+      propertyPath: correctAnswerImage
+      value: 
+      objectReference: {fileID: 21300000, guid: ac80d27d0a3394f3a8bede164772ce5f,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bff6c40937ad470a87387a55edbcc59, type: 2}
   m_IsPrefabParent: 0
@@ -415,6 +421,12 @@ Prefab:
       propertyPath: m_Name
       value: FAKE CIGARRETTE MULTPACK
       objectReference: {fileID: 0}
+    - target: {fileID: 114494967529031328, guid: cfa9156f2871d924e9403f7fe63dc5d3,
+        type: 2}
+      propertyPath: correctAnswerImage
+      value: 
+      objectReference: {fileID: 21300000, guid: dd672faf9da6b44b08d309aa7a53f76f,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cfa9156f2871d924e9403f7fe63dc5d3, type: 2}
   m_IsPrefabParent: 0
@@ -1084,6 +1096,12 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114351093038752914, guid: f413b61c71596c141a5062b7f8ddf93a,
+        type: 2}
+      propertyPath: correctAnswerImage
+      value: 
+      objectReference: {fileID: 21300000, guid: dd672faf9da6b44b08d309aa7a53f76f,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f413b61c71596c141a5062b7f8ddf93a, type: 2}
   m_IsPrefabParent: 0
@@ -1145,6 +1163,12 @@ Prefab:
       propertyPath: m_Name
       value: BOX
       objectReference: {fileID: 0}
+    - target: {fileID: 114809998784411894, guid: c664dc70fb637463cac09c06331e66a3,
+        type: 2}
+      propertyPath: correctAnswerImage
+      value: 
+      objectReference: {fileID: 21300000, guid: e2307b437e4ee4aa283d791f08c3e525,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c664dc70fb637463cac09c06331e66a3, type: 2}
   m_IsPrefabParent: 0
@@ -1292,6 +1316,12 @@ Prefab:
       propertyPath: m_Name
       value: DVD
       objectReference: {fileID: 0}
+    - target: {fileID: 114075488614291032, guid: 60e55d5f31fe55d4cb64dee08cba0a22,
+        type: 2}
+      propertyPath: correctAnswerImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 3c27604e162ae459dbe58cb1e4653a95,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60e55d5f31fe55d4cb64dee08cba0a22, type: 2}
   m_IsPrefabParent: 0
@@ -1994,6 +2024,12 @@ Prefab:
       propertyPath: m_Name
       value: FAKE DVD
       objectReference: {fileID: 0}
+    - target: {fileID: 114540863340942852, guid: 90c17136451f1c348aedbe7a1b38bab9,
+        type: 2}
+      propertyPath: correctAnswerImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 3c27604e162ae459dbe58cb1e4653a95,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90c17136451f1c348aedbe7a1b38bab9, type: 2}
   m_IsPrefabParent: 0
@@ -2191,6 +2227,12 @@ Prefab:
       propertyPath: fake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114383682244609346, guid: c9ab517e9e171cd45a6b3656a3117026,
+        type: 2}
+      propertyPath: correctAnswerImage
+      value: 
+      objectReference: {fileID: 21300000, guid: dd672faf9da6b44b08d309aa7a53f76f,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9ab517e9e171cd45a6b3656a3117026, type: 2}
   m_IsPrefabParent: 0
@@ -3629,6 +3671,12 @@ Prefab:
       propertyPath: m_Name
       value: CIGARRETTE MULTPACK
       objectReference: {fileID: 0}
+    - target: {fileID: 114090228248243754, guid: 3eea1fbc2a6726c438975a8943c1ff43,
+        type: 2}
+      propertyPath: correctAnswerImage
+      value: 
+      objectReference: {fileID: 21300000, guid: dd672faf9da6b44b08d309aa7a53f76f,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3eea1fbc2a6726c438975a8943c1ff43, type: 2}
   m_IsPrefabParent: 0
